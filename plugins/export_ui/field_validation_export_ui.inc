@@ -34,7 +34,7 @@ $plugin = array(
  * Define the add/edit form of validation rule.
  */
 function field_validation_ui_ctools_export_ui_form(&$form, &$form_state) {
-  ctools_include('export');
+  //ctools_include('export');
   $rule = $form_state['item'];
   $default_rulename = isset($rule->rulename) ? $rule->rulename : '';
   $default_entity_type = isset($rule->entity_type) ? $rule->entity_type : '';
@@ -167,10 +167,12 @@ function field_validation_ui_ctools_export_ui_form(&$form, &$form_state) {
   $validator_options = array(
     '' => t('Choose a validator'),
   );
-  ctools_include('plugins');
-  $validators = ctools_get_plugins('field_validation', 'validator');
-  // $validators = field_validation_get_validators();
-  // print debug($validators);
+
+  // @todo switch from using ctools plugins to normal classes.
+  //ctools_include('plugins');
+  //$validators = ctools_get_plugins('field_validation', 'validator');
+  $validators = field_validation_get_validators();
+
   foreach ($validators as $validator_key => $validator) {
     $validator_options[$validator_key] = $validator['label'];
   }

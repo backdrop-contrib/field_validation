@@ -141,8 +141,8 @@ abstract class field_validation_validator {
    * Return default settingsfor the validator.
    */
   public function get_default_settings(&$form, &$form_state) {
-    $rule = isset($form_state['item']) ? $form_state['item'] : new stdClass();
-    $default_settings = isset($rule->settings) ? $rule->settings : array();
+    $rule = isset($form_state['item']) ? $form_state['item'] : array();
+    $default_settings = isset($rule['settings']) ? $rule['settings'] : array();
     $default_settings = isset($form_state['values']['settings']) ? $form_state['values']['settings'] : $default_settings;
     return $default_settings;
   }

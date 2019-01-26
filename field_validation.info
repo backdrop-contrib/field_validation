@@ -1,8 +1,6 @@
+type = module
 name = Field Validation
-description = "Add validation rules to fields."
+description = Add validation rules to fields.
 package = Fields
-core = 7.x
+backdrop = 1.x
 dependencies[] = field
-dependencies[] = token
-dependencies[] = ctools
-files[] = field_validation_validator.inc
