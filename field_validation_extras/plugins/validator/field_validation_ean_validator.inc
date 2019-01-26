@@ -4,8 +4,8 @@
  * Field validation ean validator.
  */
 $plugin = array(
-  'label' => t('EAN'),
-  'description' => t('Verifies that user-entered values are valid ean number.'),
+  'label' => t('EAN-13'),
+  'description' => t('Verifies that user-entered values are valid EAN-13 number.'),
   'handler' => array(
     'class' => 'field_validation_ean_validator',
   ),
@@ -27,7 +27,7 @@ class field_validation_ean_validator extends field_validation_validator {
       }
       else {
         if (drupal_strlen($val) < 13) {
-          $val = str_repeat('0', drupal_strlen($val) - 13) + $val;
+          $val = str_repeat('0', 13 - drupal_strlen($val)) . $val;
         }
         if (!($this->attiks_ean13_valid($val))) {
           $this->set_error();
@@ -48,7 +48,7 @@ class field_validation_ean_validator extends field_validation_validator {
     if ($checksum != 0) {
       $checksum = 10 - $checksum;
     }
-    return $digits[12] == $checksum;
+    return (int) $digits[12] === $checksum;
   }
 
 }
