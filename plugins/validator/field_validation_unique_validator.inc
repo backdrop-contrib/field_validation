@@ -89,7 +89,7 @@ class field_validation_unique_validator extends field_validation_validator {
 
     }
 
-    if (!$flag) {
+    if (!$flag && isset($matched_entities)) {
       $token = array(
         '[count]' => $count,
       );
