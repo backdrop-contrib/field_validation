@@ -225,6 +225,7 @@ function field_validation_ui_manage_rule($form, $form_state, $instance, $action 
     $form['token_help']['tokens'] = array(
       '#theme' => 'token_tree',
       '#token_types' => array($token_type),
+      '#dialog' => TRUE,
     );
   }
 
