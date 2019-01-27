@@ -121,7 +121,7 @@ abstract class field_validation_validator {
    * Return error message string for the validation rule.
    */
   public function get_error_message() {
-    $error_message = $this->rule->error_message;
+    $error_message = $this->rule['error_message'];
     return $error_message;
   }
 
@@ -129,10 +129,10 @@ abstract class field_validation_validator {
    * Return error element for the validation rule.
    */
   public function get_error_element() {
-    $error_element = $this->rule->field_name . '][' . $this->langcode . '][' . $this->delta . '][' . $this->rule->col;
+    $error_element = $this->rule['field_name'] . '][' . $this->langcode . '][' . $this->delta . '][' . $this->rule['col'];
     // Support free tagging.
     if (!empty($this->field['type']) && $this->field['type'] == 'taxonomy_term_reference') {
-      $error_element = $this->rule->field_name . '][' . $this->langcode;
+      $error_element = $this->rule['field_name'] . '][' . $this->langcode;
     }
     return $error_element;
   }
@@ -154,8 +154,8 @@ abstract class field_validation_validator {
     $error_element = $this->get_error_element();
     $error_message = t($this->get_error_message());
     $tokens += array(
-      '[entity-type]' => $this->rule->entity_type,
-      '[bundle]' => $this->rule->bundle,
+      '[entity-type]' => $this->rule['entity_type'],
+      '[bundle]' => $this->rule['bundle'],
       '[field-name]' => $this->instance['label'],
       '[value]' => $this->value,
     );
@@ -163,12 +163,12 @@ abstract class field_validation_validator {
     // We support two methods to set error: using form_set_error provided by form api, using errors provided by field api.
     // form_set_error does not work correctly when a sub form embed into another form;
     // errors does not work correctly when current field does not support hook_field_widget_error.
-    if (empty($this->rule->settings['errors'])) {
+    if (empty($this->rule['settings']['errors'])) {
       form_set_error($error_element, $error_message);
     }
     else {
-      $this->errors[$this->rule->field_name][$this->langcode][$this->delta][] = array(
-        'error' => $this->rule->col,
+      $this->errors[$this->rule['field_name']][$this->langcode][$this->delta][] = array(
+        'error' => $this->rule['col'],
         'message' => $error_message,
       );
     }
@@ -191,8 +191,8 @@ abstract class field_validation_validator {
    */
   public function bypass_validation() {
     global $user;
-    if (!empty($this->rule->settings['bypass']) && !empty($this->rule->settings['roles'])) {
-      $roles = array_filter($this->rule->settings['roles']);
+    if (!empty($this->rule['settings']['bypass']) && !empty($this->rule['settings']['roles'])) {
+      $roles = array_filter($this->rule['settings']['roles']);
       $user_roles = array_keys($user->roles);
       foreach ($roles as $role) {
         if (in_array($role, $user_roles)) {
@@ -217,7 +217,7 @@ abstract class field_validation_validator {
    * Pass condition.
    */
   public function pass_condition() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     // Print debug($settings);
     if (!empty($settings['condition'])) {
       $condition_field = "";

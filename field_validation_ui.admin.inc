@@ -166,7 +166,6 @@ function field_validation_ui_manage_rule($form, $form_state, $instance, $action 
   //$class = ctools_plugin_get_class($plugin, 'handler');
 
   $info = field_validation_get_validator_info($validator);
-
   $class = $info['class'];
   $entity_type = $instance['entity_type'];
   $validator_class = new $class($entity_type);
