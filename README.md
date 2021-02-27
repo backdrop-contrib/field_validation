@@ -26,7 +26,7 @@ The following validators are currently included:
 * Pattern (Regular expression lite)
 * Date range2
 
-Following validators are included in sub module field validation extras:
+**Field validation extras** sub-module includes the following validators:
 
 * Color(HTML5)
 * Date(ISO)
@@ -41,7 +41,8 @@ Following validators are included in sub module field validation extras:
 * Require some of several fields
 * Postal code (depend on Postal Code Validation, support Address Field)
 
-There is also another sub-module Property Validation which could solve validation issues for property (non-field), such as title, Ubercat SKU, list_price.
+The **Property Validation** sub-module could solve validation issues for
+non-field properties, such as title, Ubercat SKU, list_price, etc.
 
 Documentation
 -------------
@@ -49,8 +50,10 @@ Documentation
 * [Docs on drupal.org](http://drupal.org/node/1299698)
 * [Date range](http://drupal.org/node/1438436)
 * [PHP code validator](https://www.drupal.org/node/1537028)
+* [Lullabot: Write complex validation rules for your fields](http://www.lullabot.com/articles/module-monday-field-validation)
 
-Write complex validation rules for your fields, http://www.lullabot.com/articles/module-monday-field-validation
+Additional documentation is located in the Wiki:
+https://github.com/backdrop-contrib/field_validation/wiki/Documentation.
 
 Issues
 ------
@@ -61,15 +64,16 @@ To submit bug reports and feature suggestions, or to track changes:
 Current Maintainers
 -------------------
 
-* No current maintainers.
+- [Jen Lampton](https://github.com/jenlampton).
+- Seeking additional maintainers.
 
 Credits
 -------
 
-* Ported to Backdrop by [Herb v/d Dool](https://github.com/herbdool/)
-* Originally developed for Drupal by [Howard Ge](https://www.drupal.org/u/g089h515r806)
-
-Inspired by [Webform Validation](http://drupal.org/project/webform_validation).
+- Ported to Backdrop CMS by [Herb v/d Dool](https://github.com/herbdool/).
+- Ported to Backdrop CMS by [Jen Lampton](https://github.com/jenlampton).
+- Originally written for Drupal by [Howard Ge](https://www.drupal.org/u/g089h515r806).
+- Inspired by [Webform Validation](http://drupal.org/project/webform_validation).
 
 License
 -------
