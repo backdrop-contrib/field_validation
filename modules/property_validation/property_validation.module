@@ -55,7 +55,7 @@ function property_validation_field_attach_validate($entity_type, $entity, &$erro
         continue;
       }
       if (!is_subclass_of($rule->validator, 'property_validation_validator')) {
-        drupal_set_message(t("Plugin '@validator' should extends 'property_validation_validator'.", array('@validator' => $rule->validator)));
+        backdrop_set_message(t("Plugin '@validator' should extends 'property_validation_validator'.", array('@validator' => $rule->validator)));
         continue;
       }
       $property_name = $rule->property_name;

@@ -12,7 +12,7 @@ class field_validation_length_validator extends field_validation_validator {
     $settings = $this->rule->settings;
     if ($this->value != '') {
       $flag = TRUE;
-      $length = drupal_strlen($this->value);
+      $length = backdrop_strlen($this->value);
       if (isset($settings['min']) && $settings['min'] != '') {
         $min = token_replace($settings['min'], array($this->get_token_type() => $this->entity));
         if ($length < $min) {

@@ -10,31 +10,31 @@
 function field_validation_ui_callback_dispatch($instance, $arg1 = NULL, $arg2 = NULL, $arg3 = NULL) {
   $output = '';
   if (empty($arg1)) {
-    drupal_set_title(t('Validation'));
+    backdrop_set_title(t('Validation'));
     $output .= field_validation_ui_manage($instance);
   }
   elseif ($arg1 == 'add') {
-    drupal_set_title(t('Add validation'));
-    $form = drupal_get_form('field_validation_ui_manage_rule', $instance, 'add', $arg2);
-    $output .= drupal_render($form);
+    backdrop_set_title(t('Add validation'));
+    $form = backdrop_get_form('field_validation_ui_manage_rule', $instance, 'add', $arg2);
+    $output .= backdrop_render($form);
   }
   elseif ($arg1 == 'edit') {
-    drupal_set_title(t('Edit rule'));
-    $form = drupal_get_form('field_validation_ui_manage_rule', $instance, 'edit', $arg2, $arg3);
-    $output .= drupal_render($form);
+    backdrop_set_title(t('Edit rule'));
+    $form = backdrop_get_form('field_validation_ui_manage_rule', $instance, 'edit', $arg2, $arg3);
+    $output .= backdrop_render($form);
   }
   elseif ($arg1 == 'delete') {
-    drupal_set_title(t('Delete rule'));
-    $form = drupal_get_form('field_validation_ui_delete_rule', $arg2);
-    $output .= drupal_render($form);
+    backdrop_set_title(t('Delete rule'));
+    $form = backdrop_get_form('field_validation_ui_delete_rule', $arg2);
+    $output .= backdrop_render($form);
   }
   elseif ($arg1 == 'overwrite') {
-    drupal_set_title(t('Overwrite rule'));
-    $form = drupal_get_form('field_validation_ui_manage_rule', $instance, 'edit', $arg2, $arg3);
-    $output .= drupal_render($form);
+    backdrop_set_title(t('Overwrite rule'));
+    $form = backdrop_get_form('field_validation_ui_manage_rule', $instance, 'edit', $arg2, $arg3);
+    $output .= backdrop_render($form);
   }
   else {
-    drupal_set_title(t('Validation'));
+    backdrop_set_title(t('Validation'));
     $output .= field_validation_manage($instance);
   }
 
@@ -345,7 +345,7 @@ function theme_field_validation_ui_manage_add_rule($variables) {
       $item = '';
       $path = isset($_GET['q']) ? $_GET['q'] : '';
       $url = $path . '/add/' . $validator_key;
-      $item = '<dt>' . l($validator_info['label'], $url, array('query' => drupal_get_destination())) . '</dt>';
+      $item = '<dt>' . l($validator_info['label'], $url, array('query' => backdrop_get_destination())) . '</dt>';
       $item .= '<dd>';
       if (!empty($validator_info['description'])) {
         $item .= $validator_info['description'] . ' ';
@@ -396,16 +396,16 @@ function theme_field_validation_ui_manage_overview($variables) {
       $path = isset($_GET['q']) ? $_GET['q'] : '';
       if (!empty($rule['machine'])) {
         $row[] = array(
-          'data' => l(t('Edit'), $path . '/edit/' . $validator . '/' . $machine, array('query' => drupal_get_destination())),
+          'data' => l(t('Edit'), $path . '/edit/' . $validator . '/' . $machine, array('query' => backdrop_get_destination())),
         );
         $config_suffix = $rule['entity_type'] . '.' . $rule['bundle'] . '.' . $rule['field_name'] . '.' . $machine;
         $row[] = array(
-          'data' => l(t('Delete'), $path . '/delete/' . $config_suffix, array('query' => drupal_get_destination())),
+          'data' => l(t('Delete'), $path . '/delete/' . $config_suffix, array('query' => backdrop_get_destination())),
         );
       }
       else {
         $row[] = array(
-          'data' => l(t('Overwrite'), $path . '/overwrite/' . $validator . '/' . $machine, array('query' => drupal_get_destination())),
+          'data' => l(t('Overwrite'), $path . '/overwrite/' . $validator . '/' . $machine, array('query' => backdrop_get_destination())),
           'colspan' => 2,
         );
       }

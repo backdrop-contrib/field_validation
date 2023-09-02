@@ -36,7 +36,7 @@ function field_validation_ui_menu() {
           $field_position = count(explode('/', $path)) + 1;
 
           // Extract access information, providing defaults.
-          $access = array_intersect_key($bundle_info['admin'], drupal_map_assoc(array('access callback', 'access arguments')));
+          $access = array_intersect_key($bundle_info['admin'], backdrop_map_assoc(array('access callback', 'access arguments')));
           $access += array(
             'access callback' => 'user_access',
             'access arguments' => array('administer site configuration'),
@@ -54,7 +54,7 @@ function field_validation_ui_menu() {
           $items[$path . '/fields/%field_ui_menu/validation/add'] = array(
             'load arguments' => array($entity_type, $bundle_arg, $bundle_pos, '%map'),
             'title' => 'Add validation',
-            'page callback' => 'drupal_get_form',
+            'page callback' => 'backdrop_get_form',
             'page arguments' => array('field_validation_ui_manage_rule', $field_position, 'add'),
             'type' => MENU_CALLBACK,
             'file' => 'field_validation_ui.admin.inc',
@@ -63,7 +63,7 @@ function field_validation_ui_menu() {
           $items["$path/fields/%field_ui_menu/validation/edit"] = array(
             'load arguments' => array($entity_type, $bundle_arg, $bundle_pos, '%map'),
             'title' => 'Edit rule',
-            'page callback' => 'drupal_get_form',
+            'page callback' => 'backdrop_get_form',
             'page arguments' => array('field_validation_ui_manage_rule', $field_position, 'edit'),
             'type' => MENU_CALLBACK,
             'file' => 'field_validation_ui.admin.inc',
@@ -72,7 +72,7 @@ function field_validation_ui_menu() {
           $items["$path/fields/%field_ui_menu/validation/overwrite"] = array(
             'load arguments' => array($entity_type, $bundle_arg, $bundle_pos, '%map'),
             'title' => 'Overwrite rule',
-            'page callback' => 'drupal_get_form',
+            'page callback' => 'backdrop_get_form',
             'page arguments' => array('field_validation_ui_manage_rule', $field_position, 'overwrite'),
             'type' => MENU_CALLBACK,
             'file' => 'field_validation_ui.admin.inc',
@@ -81,7 +81,7 @@ function field_validation_ui_menu() {
           $items["$path/fields/%field_ui_menu/validation/delete"] = array(
             'load arguments' => array($entity_type, $bundle_arg, $bundle_pos, '%map'),
             'title' => 'Delete rule',
-            'page callback' => 'drupal_get_form',
+            'page callback' => 'backdrop_get_form',
             'page arguments' => array('field_validation_ui_delete_rule'),
             'type' => MENU_CALLBACK,
             'file' => 'field_validation_ui.admin.inc',
