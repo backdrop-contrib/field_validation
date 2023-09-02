@@ -22,13 +22,13 @@ class property_validation_url_validator extends property_validation_validator {
       }
 
       if (!$flag && !empty($settings['internal'])) {
-        $normal_path = drupal_get_normal_path($this->value);
+        $normal_path = backdrop_get_normal_path($this->value);
         if (!url_is_external($normal_path)) {
           $parsed_link = parse_url($normal_path);
           if ($normal_path != $parsed_link['path']) {
             $normal_path = $parsed_link['path'];
           }
-          $flag = drupal_valid_path($normal_path);
+          $flag = backdrop_valid_path($normal_path);
         }
       }
 
@@ -52,7 +52,7 @@ class property_validation_url_validator extends property_validation_validator {
     );
     $form['settings']['internal'] = array(
       '#title' => t('Internal path'),
-      '#description' => t("Limit allowed input to internal drupal path."),
+      '#description' => t("Limit allowed input to internal Backdrop path."),
       '#type' => 'checkbox',
       '#default_value' => isset($default_settings['internal']) ? $default_settings['internal'] : FALSE,
     );

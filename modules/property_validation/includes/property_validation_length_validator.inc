@@ -12,7 +12,7 @@ class property_validation_length_validator extends property_validation_validator
     $settings = $this->rule->settings;
     if ($this->value != '') {
       $flag = TRUE;
-      $length = drupal_strlen($this->value);
+      $length = backdrop_strlen($this->value);
       if (isset($settings['min']) && $settings['min'] != '' && $length < $settings['min']) {
         $flag = FALSE;
       }

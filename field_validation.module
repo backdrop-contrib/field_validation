@@ -82,7 +82,7 @@ function field_validation_field_attach_validate($entity_type, $entity, &$errors)
         continue;
       }
       if (!is_subclass_of($rule['validator'], 'field_validation_validator')) {
-        drupal_set_message(t("Plugin '@validator' should extend 'field_validation_validator'.", array('@validator' => $rule['validator'])));
+        backdrop_set_message(t("Plugin '@validator' should extend 'field_validation_validator'.", array('@validator' => $rule['validator'])));
         continue;
       }
 

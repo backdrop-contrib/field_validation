@@ -22,12 +22,12 @@ class field_validation_ean_validator extends field_validation_validator {
     $settings = $this->rule->settings;
     if ($this->value !== '' && !is_null($this->value)) {
       $val = $this->value;
-      if (drupal_strlen($val) > 13) {
+      if (backdrop_strlen($val) > 13) {
         $this->set_error();
       }
       else {
-        if (drupal_strlen($val) < 13) {
-          $val = str_repeat('0', 13 - drupal_strlen($val)) . $val;
+        if (backdrop_strlen($val) < 13) {
+          $val = str_repeat('0', 13 - backdrop_strlen($val)) . $val;
         }
         if (!($this->attiks_ean13_valid($val))) {
           $this->set_error();
