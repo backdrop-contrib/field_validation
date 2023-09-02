@@ -9,7 +9,7 @@ class property_validation_numeric_validator extends property_validation_validato
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     if ($this->value != '') {
       $flag = TRUE;
       if (!is_numeric($this->value)) {

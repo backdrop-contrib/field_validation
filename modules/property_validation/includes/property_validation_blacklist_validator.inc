@@ -13,7 +13,7 @@ class property_validation_blacklist_validator extends property_validation_valida
    * Validate property.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     $blacklist = explode(',', $settings['data']);
     $blacklist = array_map('trim', $blacklist);
     $blacklist_regex = implode('|', $blacklist);

@@ -10,7 +10,7 @@ class property_validation_unique_validator extends property_validation_validator
    */
   public function validate() {
     $flag = TRUE;
-    $scope = $this->rule->settings['data'];
+    $scope = $this->rule['settings']['data'];
     $count = 0;
     if ($flag) {
       $query = new EntityFieldQuery();

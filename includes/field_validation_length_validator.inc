@@ -9,7 +9,7 @@ class field_validation_length_validator extends field_validation_validator {
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     if ($this->value != '') {
       $flag = TRUE;
       $length = drupal_strlen($this->value);

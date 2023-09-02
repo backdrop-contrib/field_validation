@@ -9,7 +9,7 @@ class field_validation_numeric2_validator extends field_validation_validator {
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     if ($this->value !== '' && !is_null($this->value)) {
       $flag = TRUE;
       if (!is_numeric($this->value)) {

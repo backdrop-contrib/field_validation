@@ -20,7 +20,7 @@ class field_validation_unique_values_validator extends field_validation_validato
    */
   public function validate() {
     $flag = FALSE;
-    $group_name = $this->rule->settings['data'];
+    $group_name = $this->rule['settings']['data'];
     $field_values = $this->get_field_column_value1($this->items, $this->rule->col);
 
     foreach ($field_values as $delta => $value) {

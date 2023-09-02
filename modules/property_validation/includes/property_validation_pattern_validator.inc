@@ -13,7 +13,7 @@ class property_validation_pattern_validator extends property_validation_validato
 
     // Following code was copied from http://drupal.org/node/1082134, thanks to DrewMathers
     if ($this->value != '') {
-      $pattern =  $this->rule->settings['pattern'];
+      $pattern =  $this->rule['settings']['pattern'];
       $pattern = preg_quote($pattern, "/"); // Escape regex control characters
       If (PHP_VERSION < 5.3) {
         $pattern = preg_replace('/-/', '\-', $pattern); // PHP bug #47229

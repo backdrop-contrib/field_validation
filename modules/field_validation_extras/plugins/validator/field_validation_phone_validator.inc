@@ -19,7 +19,7 @@ class field_validation_phone_validator extends field_validation_validator {
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     if ($this->value !== '' && !is_null($this->value)) {
       $country_code = isset($settings['country']) ? $settings['country'] : 'cn';
       $country_regex = '';

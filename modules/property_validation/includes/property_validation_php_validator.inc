@@ -9,7 +9,7 @@ class property_validation_php_validator extends property_validation_validator {
    * Validate field.
    */
   public function validate() {
-    return eval($this->rule->settings['data']);
+    return eval($this->rule['settings']['data']);
   }
 
   /**

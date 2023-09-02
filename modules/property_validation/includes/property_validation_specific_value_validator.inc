@@ -9,7 +9,7 @@ class property_validation_specific_value_validator extends property_validation_v
    * Validate property.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     $specific_values = explode(',', $settings['data']);
     $specific_values = array_map('trim', $specific_values);
     if ($this->value != '' && (!in_array($this->value, $specific_values))) {

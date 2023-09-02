@@ -19,7 +19,7 @@ class field_validation_postal_code_validator extends field_validation_validator 
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     if ($this->value !== '' && !is_null($this->value) && function_exists('postal_code_validation_validate')) {
       $country_code = isset($settings['country']) ? $settings['country'] : 'CN';
       // Address Field Module support.

@@ -9,7 +9,7 @@ class field_validation_blacklist_validator extends field_validation_validator {
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     $blacklist = explode(',', $settings['data']);
     $blacklist = array_map('trim', $blacklist);
     $blacklist_regex = implode('|', $blacklist);

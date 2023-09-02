@@ -20,7 +20,7 @@ class field_validation_equal_values_validator extends field_validation_validator
    */
   public function validate() {
     $flag = FALSE;
-    $group_name = $this->rule->settings['data'];
+    $group_name = $this->rule['settings']['data'];
 
     ctools_include('export');
     $other_group_rules = ctools_export_load_object('field_validation_rule', 'conditions', array('entity_type' => $this->rule->entity_type, 'bundle' => $this->rule->bundle, 'validator' => $this->rule->validator));

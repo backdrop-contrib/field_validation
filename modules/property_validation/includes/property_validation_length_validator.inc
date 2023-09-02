@@ -9,7 +9,7 @@ class property_validation_length_validator extends property_validation_validator
    * Validate property.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     if ($this->value != '') {
       $flag = TRUE;
       $length = drupal_strlen($this->value);

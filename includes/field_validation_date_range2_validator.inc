@@ -14,7 +14,7 @@ class field_validation_date_range2_validator extends field_validation_validator 
     $data = $this->value;
     if ($data != '' ) {
       $flag = FALSE;
-      $settings =  $this->rule->settings;
+      $settings =  $this->rule['settings'];
       $cycle = $settings['cycle'];
       // support date, datetime
       if (!is_numeric($data)) {
