@@ -9,7 +9,7 @@ class property_validation_url_validator extends property_validation_validator {
    * Validate property.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
 
     if ($this->value != '') {
       $flag = FALSE;

@@ -9,7 +9,7 @@ class field_validation_number_of_selections_validator extends field_validation_v
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
     $total_items = count($this->items);
     $flag = TRUE;
 

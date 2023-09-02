@@ -9,7 +9,7 @@ class field_validation_match_property_validator extends field_validation_validat
    * Validate field.
    */
   public function validate() {
-    $settings = $this->rule->settings;
+    $settings = $this->rule['settings'];
 
     if ($this->value != '') {
       $flag = TRUE;

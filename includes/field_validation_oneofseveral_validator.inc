@@ -11,7 +11,7 @@ class field_validation_oneofseveral_validator extends field_validation_validator
   public function validate() {
     $flag = FALSE;
 
-    $group_name = $this->rule->settings['data'];
+    $group_name = $this->rule['settings']['data'];
     $field_values = $this->get_field_column_value($this->items, $this->rule->col);
     $field_values = array_flip($field_values);
     if (count($field_values) > 0) {

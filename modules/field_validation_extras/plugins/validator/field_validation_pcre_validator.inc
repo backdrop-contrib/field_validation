@@ -19,7 +19,7 @@ class field_validation_pcre_validator extends field_validation_validator {
    * Validate field.
    */
   public function validate() {
-    $pattern = $this->rule->settings['data'];
+    $pattern = $this->rule['settings']['data'];
     if ($this->value != '' && (!preg_match($pattern, $this->value))) {
       $this->set_error();
     }

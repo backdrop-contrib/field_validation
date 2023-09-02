@@ -14,7 +14,7 @@ class property_validation_date_range_validator extends property_validation_valid
     $data = $this->value;
     if ($data != '' ) {
       $flag = FALSE;
-      $settings =  $this->rule->settings;
+      $settings =  $this->rule['settings'];
       $cycle = $settings['cycle'];
       // support date, datetime
       if (!is_numeric($data)) {

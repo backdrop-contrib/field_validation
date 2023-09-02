@@ -10,7 +10,7 @@ class property_validation_regex_validator extends property_validation_validator 
    */
   public function validate() {
     mb_regex_encoding('UTF-8');
-    $regex = $this->rule->settings['data'];
+    $regex = $this->rule['settings']['data'];
     if ($this->value != '' && (!mb_ereg("$regex", $this->value))) {
       $this->set_error();
     }
