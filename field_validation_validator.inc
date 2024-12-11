@@ -207,10 +207,13 @@ abstract class field_validation_validator {
    * Get token type.
    */
   public function get_token_type() {
-    $mappings = token_get_entity_mapping('entity');
-    // Print debug($mappings);
-    $token_type = isset($mappings[$this->entity_type]) ? $mappings[$this->entity_type] : "";
-    return $token_type;
+    $mapping = &backdrop_static(__METHOD__, array());
+    if (empty($mapping)) {
+      foreach (entity_get_info() as $entity_type => $info) {
+        $mapping[$entity_type] = !empty($info['token type']) ? $info['token type'] : $entity_type;
+      }
+    }
+    return isset($mapping[$this->entity_type]) ? $mapping[$this->entity_type] : "";
   }
 
   /**
